@@ -48,5 +48,15 @@ pipeline {
                 sh "docker build -t afo21/calculator ."
             }
         }
+        stage("Docker push") {
+            steps {
+                sh "docker push leszko/calculator"
+            }
+        }
+        stage("Deploy to staging") {
+            steps {
+                sh "docker run -d --rm -p 8765:8080 --name calculator leszko/calculator"
+            }
+        }
     }     
 }
