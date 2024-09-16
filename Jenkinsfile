@@ -50,7 +50,7 @@ pipeline {
         }
         stage("Docker push") {
             steps {
-                sh "docker push leszko/calculator"
+                sh "docker push afo21/calculator"
             }
         }
         stage("Deploy to staging") {
